@@ -792,15 +792,15 @@ static u8 CreateNPCTrainerParty(struct Pokemon* const party, const u16 trainerId
 				switch(spread->ability) {
 					case Ability_Hidden:
 					TRAINER_WITH_EV_GIVE_HIDDEN_ABILITY:
-						GiveMonNatureAndAbility(&party[i], spread->nature, 0xFF, FALSE, TRUE, FALSE); //Give Hidden Ability
+						GiveMonNatureAndAbility(&party[i], spread->nature, 0xFF, spread->shiny, TRUE, FALSE); //Give Hidden Ability
 						break;
 					case Ability_1:
 					case Ability_2:
-						GiveMonNatureAndAbility(&party[i], spread->nature, MathMin(1, spread->ability - 1), FALSE, TRUE, FALSE);
+						GiveMonNatureAndAbility(&party[i], spread->nature, MathMin(1, spread->ability - 1), spread->shiny, TRUE, FALSE);
 						break;
 					case Ability_Random_1_2:
 					TRAINER_WITH_EV_GIVE_RANDOM_ABILITY:
-						GiveMonNatureAndAbility(&party[i], spread->nature, Random() % 2, FALSE, TRUE, FALSE);
+						GiveMonNatureAndAbility(&party[i], spread->nature, Random() % 2, spread->shiny, TRUE, FALSE);
 						break;
 					case Ability_RandomAll: ;
 						u8 random = Random() % 3;
